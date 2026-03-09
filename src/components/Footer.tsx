@@ -36,7 +36,7 @@ const Footer = () => (
             </div>
             <div className="flex items-center gap-2">
               <Phone size={16} className="text-primary" />
-              <span>+256 700 000 000</span>
+              <span>+256 756 091 987</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail size={16} className="text-primary" />
@@ -63,7 +63,7 @@ const Footer = () => (
               </a>
             ))}
             <a
-              href="https://wa.me/256700000000"
+              href="https://wa.me/256756091987"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-green-500 hover:bg-green-500/10 transition-colors"
