@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import SectionHeader from "@/components/SectionHeader";
 import vipImg from "@/assets/vip-lounge.jpg";
 
@@ -8,11 +9,27 @@ const Reservations = () => {
   const [form, setForm] = useState({
     name: "", phone: "", email: "", date: "", guests: "", type: "regular", request: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.phone || !form.date || !form.guests) {
       toast.error("Please fill in all required fields.");
+      return;
+    }
+    setSubmitting(true);
+    const { error } = await supabase.from("reservations").insert({
+      name: form.name.trim(),
+      phone: form.phone.trim(),
+      email: form.email.trim() || null,
+      date: form.date,
+      guests: parseInt(form.guests),
+      type: form.type,
+      request: form.request.trim() || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
       return;
     }
     toast.success("Reservation submitted! We'll confirm via WhatsApp shortly.");
@@ -58,8 +75,8 @@ const Reservations = () => {
               <option value="corporate">Corporate Event</option>
             </select>
             <textarea className={`${inputClass} min-h-[100px]`} placeholder="Special Requests (optional)" value={form.request} onChange={(e) => setForm({ ...form, request: e.target.value })} />
-            <button type="submit" className="w-full py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity">
-              Submit Reservation
+            <button type="submit" disabled={submitting} className="w-full py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+              {submitting ? "Submitting..." : "Submit Reservation"}
             </button>
           </motion.form>
         </div>
