@@ -47,25 +47,9 @@ const AdminLogin = () => {
           <p className="text-sm text-muted-foreground mt-1">Sign in to manage Da Avenue Lounge</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            className={inputClass}
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className={inputClass}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
-          >
+          <input className={inputClass} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input className={inputClass} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit" disabled={loading} className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
