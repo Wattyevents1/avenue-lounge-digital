@@ -70,7 +70,7 @@ const Index = () => (
         >
           <Link
             to="/reservations"
-            className="px-8 py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity"
+            className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
             Reserve a Table
           </Link>
