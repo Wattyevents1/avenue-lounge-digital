@@ -20,13 +20,24 @@ const AdminLogin = () => {
       return;
     }
     setLoading(true);
-    const { error } = await signIn(email, password);
-    setLoading(false);
-    if (error) {
-      toast.error(error.message);
+    if (isSignUp) {
+      const { error } = await signUp(email, password);
+      setLoading(false);
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Account created! Now sign in.");
+        setIsSignUp(false);
+      }
     } else {
-      toast.success("Logged in!");
-      navigate("/admin");
+      const { error } = await signIn(email, password);
+      setLoading(false);
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Logged in!");
+        navigate("/admin");
+      }
     }
   };
 
