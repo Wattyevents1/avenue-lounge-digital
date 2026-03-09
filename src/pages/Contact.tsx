@@ -54,7 +54,7 @@ const Contact = () => {
               ))}
 
               <a
-                href="https://wa.me/256700000000"
+                href="https://wa.me/256756091987"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-5 flex items-center gap-4 border-green-500/30 hover:border-green-500/50 transition-colors cursor-pointer"
