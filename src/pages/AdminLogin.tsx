@@ -9,7 +9,8 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -19,13 +20,16 @@ const AdminLogin = () => {
       return;
     }
     setLoading(true);
-    const { error } = await signIn(email, password);
-    setLoading(false);
-    if (error) {
-      toast.error(error.message);
+    if (isSignUp) {
+      const { error } = await signUp(email, password);
+      setLoading(false);
+      if (error) toast.error(error.message);
+      else { toast.success("Account created!"); setIsSignUp(false); }
     } else {
-      toast.success("Logged in!");
-      navigate("/admin");
+      const { error } = await signIn(email, password);
+      setLoading(false);
+      if (error) toast.error(error.message);
+      else { toast.success("Logged in!"); navigate("/admin"); }
     }
   };
 
@@ -47,31 +51,14 @@ const AdminLogin = () => {
           <p className="text-sm text-muted-foreground mt-1">Sign in to manage Da Avenue Lounge</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            className={inputClass}
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className={inputClass}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
-          >
-            {loading ? "Signing in..." : "Sign In"}
+          <input className={inputClass} type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input className={inputClass} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button type="submit" disabled={loading} className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+            {loading ? (isSignUp ? "Creating..." : "Signing in...") : (isSignUp ? "Create Account" : "Sign In")}
           </button>
-          {/* Temporary sign-up hook */}
-          <button type="button" id="tmp-signup" className="hidden" onClick={async () => {
-            const { useAuth } = await import("@/hooks/useAuth");
-          }} />
+          <button type="button" onClick={() => setIsSignUp(!isSignUp)} className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors">
+            {isSignUp ? "Already have an account? Sign In" : "Need an account? Sign Up"}
+          </button>
         </form>
       </motion.div>
     </div>
