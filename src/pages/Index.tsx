@@ -197,7 +197,7 @@ const Index = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Crown className="text-secondary mx-auto mb-4" size={40} />
+            <Crown className="text-primary mx-auto mb-4" size={40} />
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
               The <span className="gold-text">VIP</span> Experience
             </h2>
