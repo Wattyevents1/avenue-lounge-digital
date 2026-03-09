@@ -20,10 +20,9 @@ interface EventItem {
 }
 
 const fallbackEvents: EventItem[] = [
-  { id: "1", title: "Afro Beats Friday", date: "2026-03-13T21:00:00Z", description: "The biggest Afrobeats party in Mbale! Top DJs spinning the hottest tracks all night long.", event_type: "party", image_url: null },
-  { id: "2", title: "Ladies Night", date: "2026-03-11T19:00:00Z", description: "Ladies drink free cocktails till 10 PM. Live acoustic performances and chill vibes.", event_type: "ladies_night", image_url: null },
-  { id: "3", title: "VIP Sunday Brunch", date: "2026-03-15T11:00:00Z", description: "Premium brunch with bottomless mimosas, live jazz, and our finest dishes.", event_type: "brunch", image_url: null },
-  { id: "4", title: "Neon Glow Party", date: "2026-03-22T22:00:00Z", description: "UV lights, neon body paint, and electrifying beats. Dress in white and glow all night!", event_type: "special", image_url: null },
+  { id: "1", title: "Hyper Wednesday", date: "2026-03-12T20:00:00Z", description: "Live band night! Feel the energy as top local bands perform your favourite hits. Great vibes, cold drinks, and unforgettable performances every Wednesday.", event_type: "live_band", image_url: null },
+  { id: "2", title: "Swift Fridays", date: "2026-03-14T21:00:00Z", description: "Guest DJ takeover every Friday. The hottest DJs in East Africa bring fire mixes to keep you dancing all night long.", event_type: "party", image_url: null },
+  { id: "3", title: "Lifestyle Saturday", date: "2026-03-15T21:00:00Z", description: "The ultimate Saturday experience featuring a guest DJ, premium bottle service, and the best crowd in Mbale. Dress to impress!", event_type: "party", image_url: null },
 ];
 
 const typeImg = (type: string) => {
