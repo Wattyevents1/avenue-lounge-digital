@@ -40,7 +40,7 @@ const Index = () => (
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-block text-sm uppercase tracking-[0.3em] text-secondary font-semibold mb-4"
+          className="inline-block text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-4"
         >
           Mbale City, Uganda
         </motion.span>
