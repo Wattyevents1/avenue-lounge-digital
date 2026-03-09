@@ -1,66 +1,104 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { UtensilsCrossed, Coffee, Pizza, IceCream, Sandwich, Croissant } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero-lounge.jpg";
-import cocktailsImg from "@/assets/cocktails.jpg";
-import foodImg from "@/assets/food-platter.jpg";
 
-interface MenuItem {
-  id: string;
+interface MenuItemData {
   name: string;
-  price: number;
-  description: string | null;
-  category: string;
-  image_url: string | null;
-  is_available: boolean;
+  price: string;
+  note?: string;
 }
 
-const fallbackItems: MenuItem[] = [
-  { id: "1", name: "Avenue Sunset", price: 25000, description: "Vodka, passion fruit, orange juice, grenadine", category: "cocktails", image_url: null, is_available: true },
-  { id: "2", name: "Neon Mojito", price: 20000, description: "Rum, lime, mint, soda water, sugar", category: "cocktails", image_url: null, is_available: true },
-  { id: "3", name: "Jameson Irish", price: 15000, description: "Single shot, neat or on the rocks", category: "whiskey", image_url: null, is_available: true },
-  { id: "4", name: "Tusker Lager", price: 7000, description: "East Africa's favorite cold beer", category: "beers", image_url: null, is_available: true },
-  { id: "5", name: "Spring Rolls", price: 15000, description: "Crispy vegetable spring rolls with sweet chili", category: "starters", image_url: null, is_available: true },
-  { id: "6", name: "Avenue Steak", price: 45000, description: "Prime beef steak, pepper sauce, fries", category: "grills", image_url: null, is_available: true },
+interface MenuCategory {
+  title: string;
+  icon: React.ReactNode;
+  items: MenuItemData[];
+}
+
+const menuData: MenuCategory[] = [
+  {
+    title: "Breakfast",
+    icon: <Croissant size={22} />,
+    items: [
+      { name: "Beef Katogo", price: "15,000/-" },
+      { name: "Vegetable Katogo", price: "10,000/-" },
+      { name: "Avenue Special Breakfast", price: "25,000/-", note: "Toasted bread, sausages, fried potatoes & tea of your choice" },
+    ],
+  },
+  {
+    title: "Snacks",
+    icon: <Sandwich size={22} />,
+    items: [
+      { name: "Plain Chapati", price: "3,000/-" },
+      { name: "Pair of Beef Samosa", price: "6,000/-" },
+      { name: "Pair of Vegetable Samosa", price: "5,000/-" },
+      { name: "Ugandan Rolex", price: "10,000/-" },
+      { name: "Chicken Rolex", price: "20,000/-" },
+    ],
+  },
+  {
+    title: "Main Course",
+    icon: <UtensilsCrossed size={22} />,
+    items: [
+      { name: "Oven Grilled Chicken & Chips", price: "25,000/-" },
+      { name: "Pan Fried Goat & Chips", price: "30,000/-" },
+      { name: "Liver & Chips", price: "30,000/-" },
+      { name: "Whole Tilapia Fish", price: "50,000/-" },
+      { name: "Boiled Local Chicken", price: "15,000/-", note: "Served with two of cassava, matooke, kalo or rice" },
+      { name: "Boiled Goat", price: "20,000/-", note: "Served with two of cassava, matooke, kalo or rice" },
+    ],
+  },
+  {
+    title: "Sandwiches",
+    icon: <Sandwich size={22} />,
+    items: [
+      { name: "Chicken Sandwich", price: "25,000/-" },
+      { name: "Vegetable Sandwich", price: "20,000/-" },
+    ],
+  },
+  {
+    title: "Pizza",
+    icon: <Pizza size={22} />,
+    items: [
+      { name: "Beef / Chicken Pizza", price: "35,000/-" },
+      { name: "Da Avenue Special Pizza", price: "40,000/-" },
+    ],
+  },
+  {
+    title: "Deserts",
+    icon: <IceCream size={22} />,
+    items: [
+      { name: "Fruit Platter", price: "15,000/-" },
+    ],
+  },
+  {
+    title: "Coffee & Tea",
+    icon: <Coffee size={22} />,
+    items: [
+      { name: "Black Tea", price: "5,000/-" },
+      { name: "Black Tea Spiced", price: "7,000/-" },
+      { name: "African Tea", price: "8,000/-" },
+      { name: "African Tea Spiced", price: "10,000/-" },
+      { name: "Dawa Tea", price: "10,000/-" },
+      { name: "Black Coffee", price: "10,000/-" },
+      { name: "African Coffee", price: "10,000/-" },
+      { name: "Juice", price: "10,000/-" },
+      { name: "Cocktail Juice", price: "12,000/-" },
+    ],
+  },
 ];
 
-const categoryImg = (cat: string) => {
-  if (["starters", "mains", "grills", "desserts"].includes(cat)) return foodImg;
-  return cocktailsImg;
-};
-
-const formatPrice = (price: number) => `UGX ${price.toLocaleString()}`;
-
 const MenuPage = () => {
-  const [items, setItems] = useState<MenuItem[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [active, setActive] = useState("all");
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  useEffect(() => {
-    const fetchMenu = async () => {
-      const { data, error } = await supabase
-        .from("menu_items")
-        .select("*")
-        .eq("is_available", true)
-        .order("category")
-        .order("name");
-      
-      if (!error && data && data.length > 0) {
-        setItems(data);
-      } else {
-        setItems(fallbackItems);
-      }
-      setLoading(false);
-    };
-    fetchMenu();
-  }, []);
-
-  const categories = ["all", ...Array.from(new Set(items.map((i) => i.category)))];
-  const filtered = active === "all" ? items : items.filter((i) => i.category === active);
+  const scrollTo = (index: number) => {
+    sectionRefs.current[index]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <div className="pt-20">
+      {/* Hero */}
       <section className="relative h-[35vh] flex items-center justify-center overflow-hidden">
         <img src={heroImg} alt="Menu" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 hero-overlay" />
@@ -71,57 +109,72 @@ const MenuPage = () => {
 
       <section className="section-padding">
         <div className="container mx-auto">
-          <SectionHeader subtitle="Drinks & Food" title="Crafted for Your Pleasure" />
+          <SectionHeader subtitle="Food & Beverages" title="Crafted for Your Pleasure" />
 
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((cat) => (
+          {/* Category quick-nav */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12 sticky top-20 z-20 bg-background/80 backdrop-blur-md py-3 -mx-4 px-4 rounded-xl">
+            {menuData.map((cat, i) => (
               <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors capitalize ${
-                  active === cat
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:text-foreground"
-                }`}
+                key={cat.title}
+                onClick={() => scrollTo(i)}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-muted text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
               >
-                {cat === "all" ? "All" : cat}
+                {cat.icon}
+                {cat.title}
               </button>
             ))}
           </div>
 
-          {loading ? (
-            <div className="text-center text-muted-foreground py-20">Loading menu...</div>
-          ) : (
-            <AnimatePresence mode="wait">
+          {/* Menu sections */}
+          <div className="space-y-14 max-w-3xl mx-auto">
+            {menuData.map((category, catIndex) => (
               <motion.div
-                key={active}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                key={category.title}
+                ref={(el) => { sectionRefs.current[catIndex] = el; }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4 }}
+                className="scroll-mt-36"
               >
-                {filtered.map((item) => (
-                  <div key={item.id} className="glass-card overflow-hidden group">
-                    <div className="h-40 overflow-hidden">
-                      <img
-                        src={item.image_url || categoryImg(item.category)}
-                        alt={item.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="font-display font-semibold text-foreground">{item.name}</h3>
-                        <span className="text-primary font-semibold text-sm whitespace-nowrap">{formatPrice(item.price)}</span>
-                      </div>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
+                {/* Category header */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    {category.icon}
                   </div>
-                ))}
+                  <h2 className="text-2xl font-display font-bold text-foreground">{category.title}</h2>
+                  <div className="flex-1 h-px bg-border ml-2" />
+                </div>
+
+                {/* Items */}
+                <div className="space-y-1">
+                  {category.items.map((item, itemIndex) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: itemIndex * 0.04 }}
+                      className="flex justify-between items-baseline gap-4 py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors group"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-baseline gap-2">
+                          <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                            {item.name}
+                          </span>
+                          <span className="flex-1 border-b border-dotted border-border/50 min-w-[2rem] translate-y-[-4px]" />
+                        </div>
+                        {item.note && (
+                          <p className="text-xs text-muted-foreground mt-0.5 italic">{item.note}</p>
+                        )}
+                      </div>
+                      <span className="text-primary font-semibold text-sm whitespace-nowrap">{item.price}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
-            </AnimatePresence>
-          )}
+            ))}
+          </div>
         </div>
       </section>
     </div>
