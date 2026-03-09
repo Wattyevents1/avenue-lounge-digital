@@ -75,7 +75,7 @@ const Reservations = () => {
               <option value="corporate">Corporate Event</option>
             </select>
             <textarea className={`${inputClass} min-h-[100px]`} placeholder="Special Requests (optional)" value={form.request} onChange={(e) => setForm({ ...form, request: e.target.value })} />
-            <button type="submit" disabled={submitting} className="w-full py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+            <button type="submit" disabled={submitting} className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
               {submitting ? "Submitting..." : "Submit Reservation"}
             </button>
           </motion.form>
