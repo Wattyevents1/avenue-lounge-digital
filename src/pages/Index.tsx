@@ -51,7 +51,7 @@ const Index = () => (
           className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight"
         >
           Welcome to{" "}
-          <span className="neon-text text-primary">Da Avenue</span>{" "}
+          <span className="gold-shimmer text-primary">Da Avenue</span>{" "}
           <span className="gold-text">Lounge</span>
         </motion.h1>
         <motion.p
