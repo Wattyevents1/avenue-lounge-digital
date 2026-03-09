@@ -9,7 +9,8 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -19,13 +20,24 @@ const AdminLogin = () => {
       return;
     }
     setLoading(true);
-    const { error } = await signIn(email, password);
-    setLoading(false);
-    if (error) {
-      toast.error(error.message);
+    if (isSignUp) {
+      const { error } = await signUp(email, password);
+      setLoading(false);
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Account created! Now sign in.");
+        setIsSignUp(false);
+      }
     } else {
-      toast.success("Logged in!");
-      navigate("/admin");
+      const { error } = await signIn(email, password);
+      setLoading(false);
+      if (error) {
+        toast.error(error.message);
+      } else {
+        toast.success("Logged in!");
+        navigate("/admin");
+      }
     }
   };
 
@@ -66,7 +78,14 @@ const AdminLogin = () => {
             disabled={loading}
             className="w-full py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {loading ? "Signing in..." : "Sign In"}
+            {loading ? (isSignUp ? "Creating..." : "Signing in...") : (isSignUp ? "Create Account" : "Sign In")}
+          </button>
+          <button
+            type="button"
+            onClick={() => setIsSignUp(!isSignUp)}
+            className="w-full text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {isSignUp ? "Already have an account? Sign In" : "Need an account? Sign Up"}
           </button>
         </form>
       </motion.div>
