@@ -39,7 +39,7 @@ const Contact = () => {
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
               {[
                 { icon: MapPin, title: "Location", info: "Church Road, Opp NRM Offices, Mbale City, Uganda" },
-                { icon: Phone, title: "Phone", info: "+256 700 000 000" },
+                { icon: Phone, title: "Phone", info: "+256 756 091 987" },
                 { icon: Mail, title: "Email", info: "info@daavenuelounge.com" },
               ].map(({ icon: Icon, title, info }) => (
                 <div key={title} className="glass-card p-5 flex items-start gap-4">
