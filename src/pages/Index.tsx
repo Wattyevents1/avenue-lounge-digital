@@ -17,9 +17,9 @@ const fadeUp = {
 };
 
 const events = [
-  { title: "Afro Beats Friday", date: "Every Friday", img: djImg },
-  { title: "Ladies Night", date: "Every Wednesday", img: cocktailsImg },
-  { title: "VIP Sunday Brunch", date: "Every Sunday", img: vipImg },
+  { title: "Hyper Wednesday", date: "Every Wednesday", img: heroImg },
+  { title: "Swift Fridays", date: "Every Friday", img: djImg },
+  { title: "Lifestyle Saturday", date: "Every Saturday", img: vipImg },
 ];
 
 const services = [
