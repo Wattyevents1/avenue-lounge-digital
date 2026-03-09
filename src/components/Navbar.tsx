@@ -33,7 +33,7 @@ const Navbar = () => {
               to={link.to}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 location.pathname === link.to
-                  ? "text-secondary"
+                  ? "text-primary"
                   : "text-foreground/70 hover:text-foreground"
               }`}
             >
