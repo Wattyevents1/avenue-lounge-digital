@@ -113,7 +113,7 @@ const MenuPage = () => {
                     <div className="p-5">
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="font-display font-semibold text-foreground">{item.name}</h3>
-                        <span className="text-secondary font-semibold text-sm whitespace-nowrap">{formatPrice(item.price)}</span>
+                        <span className="text-primary font-semibold text-sm whitespace-nowrap">{formatPrice(item.price)}</span>
                       </div>
                       <p className="text-sm text-muted-foreground">{item.description}</p>
                     </div>

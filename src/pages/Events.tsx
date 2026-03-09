@@ -104,7 +104,7 @@ const Events = () => {
                         <Calendar size={14} className="text-primary" />
                         {format(new Date(event.date), "EEEE, MMM d yyyy · h:mm a")}
                       </span>
-                      <Link to="/reservations" className="ml-auto text-secondary font-semibold hover:underline">Book Now</Link>
+                      <Link to="/reservations" className="ml-auto text-primary font-semibold hover:underline">Book Now</Link>
                     </div>
                   </div>
                 </motion.div>

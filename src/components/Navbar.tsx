@@ -82,7 +82,7 @@ const Navbar = () => {
               <Link
                 to="/reservations"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-4 py-3 text-center text-sm font-semibold rounded-lg bg-secondary text-secondary-foreground"
+                className="mt-2 px-4 py-3 text-center text-sm font-semibold rounded-lg bg-primary text-primary-foreground"
               >
                 Book a Table
               </Link>

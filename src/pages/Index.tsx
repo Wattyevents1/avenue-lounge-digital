@@ -206,7 +206,7 @@ const Index = () => (
             </p>
             <Link
               to="/reservations"
-              className="inline-flex px-8 py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
               Book VIP
             </Link>
