@@ -44,7 +44,7 @@ const Navbar = () => {
 
         <Link
           to="/reservations"
-          className="hidden lg:inline-flex px-5 py-2.5 text-sm font-semibold rounded-lg bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity"
+          className="hidden lg:inline-flex px-5 py-2.5 text-sm font-semibold rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
         >
           Book a Table
         </Link>
