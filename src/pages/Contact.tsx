@@ -40,7 +40,7 @@ const Contact = () => {
               {[
                 { icon: MapPin, title: "Location", info: "Church Road, Opp NRM Offices, Mbale City, Uganda" },
                 { icon: Phone, title: "Phone", info: "+256 756 091 987" },
-                { icon: Mail, title: "Email", info: "info@daavenuelounge.com" },
+                { icon: Mail, title: "Email", info: "daavenuelounge1@gmail.com" },
               ].map(({ icon: Icon, title, info }) => (
                 <div key={title} className="glass-card p-5 flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
