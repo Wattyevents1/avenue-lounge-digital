@@ -23,6 +23,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 sm:h-20 px-4">
         <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Da Avenue Lounge" className="h-10 sm:h-12" />
+          <span className="font-display font-bold text-foreground text-lg sm:text-xl tracking-tight">Da Avenue <span className="text-primary">Lounge</span></span>
         </Link>
 
         {/* Desktop */}
