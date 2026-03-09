@@ -91,7 +91,7 @@ const Events = () => {
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <span className={`text-xs px-2.5 py-1 rounded-full font-semibold ${
-                          event.event_type === "special" ? "bg-secondary/20 text-secondary" : "bg-primary/20 text-primary"
+                          event.event_type === "special" ? "bg-primary/20 text-primary" : "bg-muted text-foreground"
                         }`}>
                           {event.event_type.replace("_", " ")}
                         </span>
@@ -104,7 +104,7 @@ const Events = () => {
                         <Calendar size={14} className="text-primary" />
                         {format(new Date(event.date), "EEEE, MMM d yyyy · h:mm a")}
                       </span>
-                      <Link to="/reservations" className="ml-auto text-secondary font-semibold hover:underline">Book Now</Link>
+                      <Link to="/reservations" className="ml-auto text-primary font-semibold hover:underline">Book Now</Link>
                     </div>
                   </div>
                 </motion.div>

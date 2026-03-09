@@ -40,7 +40,7 @@ const Index = () => (
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="inline-block text-sm uppercase tracking-[0.3em] text-secondary font-semibold mb-4"
+          className="inline-block text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-4"
         >
           Mbale City, Uganda
         </motion.span>
@@ -51,7 +51,7 @@ const Index = () => (
           className="text-4xl sm:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight"
         >
           Welcome to{" "}
-          <span className="neon-text text-primary">Da Avenue</span>{" "}
+          <span className="gold-shimmer text-primary">Da Avenue</span>{" "}
           <span className="gold-text">Lounge</span>
         </motion.h1>
         <motion.p
@@ -70,13 +70,13 @@ const Index = () => (
         >
           <Link
             to="/reservations"
-            className="px-8 py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity"
+            className="px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
           >
             Reserve a Table
           </Link>
           <Link
             to="/menu"
-            className="px-8 py-3.5 rounded-lg neon-border text-foreground font-semibold hover:bg-primary/10 transition-colors"
+            className="px-8 py-3.5 rounded-lg gold-border text-foreground font-semibold hover:bg-primary/10 transition-colors"
           >
             View Menu
           </Link>
@@ -127,7 +127,7 @@ const Index = () => (
             <p className="text-muted-foreground mb-6">
               From signature cocktails to sizzling grills, our menu is designed to delight. Explore our full selection of premium spirits, wines, and locally inspired dishes.
             </p>
-            <Link to="/menu" className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all">
+            <Link to="/menu" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
               Explore Full Menu <ArrowRight size={18} />
             </Link>
           </motion.div>
@@ -172,14 +172,14 @@ const Index = () => (
               <img src={e.img} alt={e.title} className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <span className="text-xs uppercase tracking-wider text-secondary font-semibold">{e.date}</span>
+                <span className="text-xs uppercase tracking-wider text-primary font-semibold">{e.date}</span>
                 <h3 className="text-xl font-display font-bold text-foreground mt-1">{e.title}</h3>
               </div>
             </motion.div>
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link to="/events" className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all">
+          <Link to="/events" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
             View All Events <ArrowRight size={18} />
           </Link>
         </div>
@@ -197,7 +197,7 @@ const Index = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Crown className="text-secondary mx-auto mb-4" size={40} />
+            <Crown className="text-primary mx-auto mb-4" size={40} />
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-foreground mb-4">
               The <span className="gold-text">VIP</span> Experience
             </h2>
@@ -206,7 +206,7 @@ const Index = () => (
             </p>
             <Link
               to="/reservations"
-              className="inline-flex px-8 py-3.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:opacity-90 transition-opacity"
+              className="inline-flex px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-opacity"
             >
               Book VIP
             </Link>

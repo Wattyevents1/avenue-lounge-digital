@@ -33,7 +33,7 @@ const Navbar = () => {
               to={link.to}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 location.pathname === link.to
-                  ? "text-secondary"
+                  ? "text-primary"
                   : "text-foreground/70 hover:text-foreground"
               }`}
             >
@@ -44,7 +44,7 @@ const Navbar = () => {
 
         <Link
           to="/reservations"
-          className="hidden lg:inline-flex px-5 py-2.5 text-sm font-semibold rounded-lg bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity"
+          className="hidden lg:inline-flex px-5 py-2.5 text-sm font-semibold rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
         >
           Book a Table
         </Link>
@@ -72,7 +72,7 @@ const Navbar = () => {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.to
-                      ? "bg-muted text-secondary"
+                      ? "bg-muted text-primary"
                       : "text-foreground/70 hover:bg-muted"
                   }`}
                 >
@@ -82,7 +82,7 @@ const Navbar = () => {
               <Link
                 to="/reservations"
                 onClick={() => setOpen(false)}
-                className="mt-2 px-4 py-3 text-center text-sm font-semibold rounded-lg bg-secondary text-secondary-foreground"
+                className="mt-2 px-4 py-3 text-center text-sm font-semibold rounded-lg bg-primary text-primary-foreground"
               >
                 Book a Table
               </Link>

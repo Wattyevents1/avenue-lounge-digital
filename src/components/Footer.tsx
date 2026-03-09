@@ -19,7 +19,7 @@ const Footer = () => (
               <Link
                 key={item}
                 to={`/${item.toLowerCase()}`}
-                className="text-sm text-muted-foreground hover:text-secondary transition-colors"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 {item}
               </Link>

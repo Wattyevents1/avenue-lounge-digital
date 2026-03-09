@@ -53,13 +53,15 @@ export default {
         },
         gold: {
           DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
           foreground: "hsl(var(--gold-foreground))",
         },
-        "neon-purple": {
-          DEFAULT: "hsl(var(--neon-purple))",
-          glow: "hsl(var(--neon-purple-glow))",
+        grey: {
+          DEFAULT: "hsl(var(--grey))",
+          light: "hsl(var(--grey-light))",
+          dark: "hsl(var(--grey-dark))",
         },
-        "deep-blue": "hsl(var(--deep-blue))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
