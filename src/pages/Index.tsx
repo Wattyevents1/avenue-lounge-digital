@@ -127,7 +127,7 @@ const Index = () => (
             <p className="text-muted-foreground mb-6">
               From signature cocktails to sizzling grills, our menu is designed to delight. Explore our full selection of premium spirits, wines, and locally inspired dishes.
             </p>
-            <Link to="/menu" className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all">
+            <Link to="/menu" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
               Explore Full Menu <ArrowRight size={18} />
             </Link>
           </motion.div>
