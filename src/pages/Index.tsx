@@ -76,7 +76,7 @@ const Index = () => (
           </Link>
           <Link
             to="/menu"
-            className="px-8 py-3.5 rounded-lg neon-border text-foreground font-semibold hover:bg-primary/10 transition-colors"
+            className="px-8 py-3.5 rounded-lg gold-border text-foreground font-semibold hover:bg-primary/10 transition-colors"
           >
             View Menu
           </Link>
