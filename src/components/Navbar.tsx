@@ -72,7 +72,7 @@ const Navbar = () => {
                   onClick={() => setOpen(false)}
                   className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                     location.pathname === link.to
-                      ? "bg-muted text-secondary"
+                      ? "bg-muted text-primary"
                       : "text-foreground/70 hover:bg-muted"
                   }`}
                 >
