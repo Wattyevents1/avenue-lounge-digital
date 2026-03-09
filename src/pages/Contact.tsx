@@ -71,7 +71,7 @@ const Contact = () => {
               {/* Map */}
               <div className="rounded-xl overflow-hidden h-64 border border-border">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7!2d34.175!3d1.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMDQnMTIuMCJOIDM0wrAxMCczMC4wIkU!5e0!3m2!1sen!2sug!4v1!5m2!1sen!2sug"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7!2d34.175!3d1.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177f1d3b0d3e8e1d%3A0x1!2sDa%20Avenue%20Lounge%2C%20Church%20Road%2C%20Mbale!5e0!3m2!1sen!2sug!4v1"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
