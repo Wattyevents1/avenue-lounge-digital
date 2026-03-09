@@ -68,6 +68,10 @@ const AdminLogin = () => {
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
+          {/* Temporary sign-up hook */}
+          <button type="button" id="tmp-signup" className="hidden" onClick={async () => {
+            const { useAuth } = await import("@/hooks/useAuth");
+          }} />
         </form>
       </motion.div>
     </div>
