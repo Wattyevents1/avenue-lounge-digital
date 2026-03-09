@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import WhatsAppButton from "./components/WhatsAppButton";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import MenuPage from "./pages/MenuPage";
@@ -39,6 +40,7 @@ const Layout = () => {
         <Route path="*" element={<NotFound />} />
       </Routes>
       {!isAdmin && <Footer />}
+      {!isAdmin && <WhatsAppButton />}
     </>
   );
 };
