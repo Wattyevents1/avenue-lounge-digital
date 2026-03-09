@@ -172,7 +172,7 @@ const Index = () => (
               <img src={e.img} alt={e.title} className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <span className="text-xs uppercase tracking-wider text-secondary font-semibold">{e.date}</span>
+                <span className="text-xs uppercase tracking-wider text-primary font-semibold">{e.date}</span>
                 <h3 className="text-xl font-display font-bold text-foreground mt-1">{e.title}</h3>
               </div>
             </motion.div>
