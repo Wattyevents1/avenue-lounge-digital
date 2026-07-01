@@ -7,6 +7,11 @@ import cocktailsImg from "@/assets/cocktails.jpg";
 import djImg from "@/assets/dj-event.jpg";
 import vipImg from "@/assets/vip-lounge.jpg";
 import foodImg from "@/assets/food-platter.jpg";
+import venue1 from "@/assets/venue-1.jpg";
+import venue2 from "@/assets/venue-2.jpg";
+import venue3 from "@/assets/venue-3.jpg";
+import venue4 from "@/assets/venue-4.jpg";
+import venue5 from "@/assets/venue-5.jpg";
 
 interface GalleryItem {
   id: string;
@@ -15,13 +20,16 @@ interface GalleryItem {
 }
 
 const fallbackImages: GalleryItem[] = [
-  { id: "1", image_url: heroImg, caption: "Lounge interior" },
-  { id: "2", image_url: cocktailsImg, caption: "Cocktails" },
-  { id: "3", image_url: djImg, caption: "DJ Night" },
-  { id: "4", image_url: vipImg, caption: "VIP Lounge" },
-  { id: "5", image_url: foodImg, caption: "Food" },
-  { id: "6", image_url: djImg, caption: "Party vibes" },
-  { id: "7", image_url: cocktailsImg, caption: "Premium drinks" },
+  { id: "1", image_url: heroImg, caption: "The Avenue vibe" },
+  { id: "2", image_url: venue1, caption: "DJ night" },
+  { id: "3", image_url: djImg, caption: "Guest DJ" },
+  { id: "4", image_url: vipImg, caption: "Lounge interior" },
+  { id: "5", image_url: venue2, caption: "Party crowd" },
+  { id: "6", image_url: venue3, caption: "Weekend vibes" },
+  { id: "7", image_url: cocktailsImg, caption: "The bar" },
+  { id: "8", image_url: foodImg, caption: "At the entrance" },
+  { id: "9", image_url: venue4, caption: "Ample parking" },
+  { id: "10", image_url: venue5, caption: "Convenient location" },
 ];
 
 const spanPattern = [
