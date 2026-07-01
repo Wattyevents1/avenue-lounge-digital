@@ -10,6 +10,7 @@ import cocktailsImg from "@/assets/cocktails.jpg";
 import vipImg from "@/assets/vip-lounge.jpg";
 import heroImg from "@/assets/hero-lounge.jpg";
 import corporateImg from "@/assets/venue-3.jpg";
+import lifestyleImg from "@/assets/venue-5.jpg";
 
 interface EventItem {
   id: string;
@@ -24,7 +25,7 @@ const fallbackEvents: EventItem[] = [
   { id: "1", title: "Hyper Wednesday", date: "2026-03-12T20:00:00Z", description: "Live band night! Feel the energy as top local bands perform your favourite hits. Great vibes, cold drinks, and unforgettable performances every Wednesday.", event_type: "live_band", image_url: null },
   { id: "2", title: "Corporate Thursdays", date: "2026-03-13T19:00:00Z", description: "Unwind after work with the best of Kikadde and oldies. Classic throwback tunes, smooth vibes, and a sophisticated crowd. The perfect midweek escape.", event_type: "corporate", image_url: corporateImg },
   { id: "3", title: "Swift Fridays", date: "2026-03-14T21:00:00Z", description: "Guest DJ takeover every Friday. The hottest DJs in East Africa bring fire mixes to keep you dancing all night long.", event_type: "party", image_url: null },
-  { id: "4", title: "Lifestyle Saturday", date: "2026-03-15T21:00:00Z", description: "The ultimate Saturday experience featuring a guest DJ, premium bottle service, and the best crowd in Mbale. Dress to impress!", event_type: "party", image_url: null },
+  { id: "4", title: "Lifestyle Saturday", date: "2026-03-15T21:00:00Z", description: "The ultimate Saturday experience featuring a guest DJ, premium bottle service, and the best crowd in Mbale. Dress to impress!", event_type: "party", image_url: lifestyleImg },
 ];
 
 const typeImg = (type: string) => {
