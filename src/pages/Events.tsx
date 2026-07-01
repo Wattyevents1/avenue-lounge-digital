@@ -104,7 +104,11 @@ const Events = () => {
                     <div className="flex items-center gap-6 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1.5">
                         <Calendar size={14} className="text-primary" />
-                        {format(new Date(event.date), "EEEE, MMM d yyyy · h:mm a")}
+                        {event.title.includes("Wednesday") ? "Every Wednesday" : 
+                         event.title.includes("Thursday") ? "Every Thursday" : 
+                         event.title.includes("Friday") ? "Every Friday" : 
+                         event.title.includes("Saturday") ? "Every Saturday" : 
+                         format(new Date(event.date), "EEEE, MMM d yyyy · h:mm a")}
                       </span>
                       <Link to="/reservations" className="ml-auto text-primary font-semibold hover:underline">Book Now</Link>
                     </div>
