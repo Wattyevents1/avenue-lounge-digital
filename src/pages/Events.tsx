@@ -10,6 +10,7 @@ import cocktailsImg from "@/assets/cocktails.jpg";
 import vipImg from "@/assets/vip-lounge.jpg";
 import heroImg from "@/assets/hero-lounge.jpg";
 import corporateImg from "@/assets/venue-3.jpg";
+import lifestyleImg from "@/assets/venue-5.jpg";
 
 interface EventItem {
   id: string;
