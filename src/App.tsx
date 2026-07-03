@@ -7,6 +7,7 @@ import { AuthProvider } from "./hooks/useAuth";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
+import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import MenuPage from "./pages/MenuPage";
@@ -26,6 +27,7 @@ const Layout = () => {
 
   return (
     <>
+      <ScrollToTop />
       {!isAdmin && <Navbar />}
       <Routes>
         <Route path="/" element={<Index />} />
